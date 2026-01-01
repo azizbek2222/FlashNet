@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FlashNet | Future Browser</title>
+    <link rel="stylesheet" href="brauzer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="browser-container">
+        <div class="header-mac">
+             <div class="window-controls">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="tab active">
+                <i class="fas fa-globe"></i> Yangi sahifa <i class="fas fa-times close-tab"></i>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <div class="nav-buttons">
+                <button title="Orqaga"><i class="fas fa-chevron-left"></i></button>
+                <button title="Oldinga"><i class="fas fa-chevron-right"></i></button>
+                <button onclick="location.reload()" title="Yangilash"><i class="fas fa-sync-alt"></i></button>
+            </div>
+
+            <div class="address-bar">
+                <i class="fas fa-shield-alt s-icon"></i>
+                <input type="text" id="url-input" placeholder="Veb-manzilni kiriting...">
+                <i class="far fa-star bookmark-icon"></i>
+            </div>
+
+            <button onclick="loadPage()" class="go-btn">Go</button>
+        </div>
+
+        <div id="loader" class="loader-bar"></div>
+
+        <div class="content-area">
+            <div class="welcome-screen" id="welcome-msg">
+                <div class="logo-circle">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h1>FlashNet</h1>
+                <p>Tezkor, xavfsiz va zamonaviy</p>
+                <div class="quick-links">
+                    <div class="link-item" onclick="quickLoad('google.com')">G</div>
+                    <div class="link-item" onclick="quickLoad('wikipedia.org')">W</div>
+                    <div class="link-item" onclick="quickLoad('github.com')">GitHub</div>
+                </div>
+            </div>
+            <iframe id="browser-viewport" src="about:blank"></iframe>
+        </div>
+    </div>
+
+    <script src="brauzer.js"></script>
+</body>
+</html>

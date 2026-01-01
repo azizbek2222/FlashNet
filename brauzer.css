@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box; /* Element o'lchami chegaradan oshib ketmaydi */
+}
+
+:root {
+    --primary-color: #00d2ff;
+    --mac-bg: #2d2d44;
+    --toolbar-bg: #3c3c5a;
+    --input-bg: #1e1e2f;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0a0a0c;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Butun sahifa surilmasligi uchun */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.browser-container {
+    width: 98%;
+    height: 96vh;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+
+/* Mac uslubidagi yuqori panel */
+.header-mac {
+    background: var(--mac-bg);
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.window-controls { display: flex; gap: 8px; margin-right: 20px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f57; } .yellow { background: #febc2e; } .green { background: #28c840; }
+
+.tab {
+    background: var(--toolbar-bg);
+    color: white;
+    padding: 6px 20px;
+    border-radius: 8px 8px 0 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Toolbar */
+.toolbar {
+    background: var(--toolbar-bg);
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-buttons { display: flex; gap: 18px; color: #ccc; font-size: 14px; }
+.nav-buttons i:hover { color: white; cursor: pointer; }
+
+.address-bar {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    background: var(--input-bg);
+    padding: 6px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    min-width: 0; /* Uzun link kiritilganda siqilish uchun */
+}
+
+#url-input {
+    background: transparent;
+    border: none;
+    color: #eee;
+    width: 100%;
+    outline: none;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.go-btn {
+    background: #50507a;
+    border: none;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Iframe - Sahifani to'liq egallashi uchun */
+.content-area {
+    flex-grow: 1;
+    position: relative;
+    background: #fff;
+}
+
+#browser-viewport {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Yuklanish animatsiyasi */
+.loader-bar {
+    height: 2px;
+    width: 0%;
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    z-index: 100;
+    transition: width 0.3s;
+}
+
+/* Welcome Screen dizayni */
+.welcome-screen {
+    position: absolute;
+    inset: 0;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: white;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.quick-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.link-item {
+    width: 50px;
+    height: 50px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.link-item:hover { background: var(--primary-color); transform: translateY(-5px); }
