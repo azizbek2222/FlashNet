@@ -1,172 +1,114 @@
-/* Asosiy sozlamalar */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
     --primary-color: #00d2ff;
-    --mac-bg: #1e1e2f;
-    --toolbar-bg: #2a2a40;
-    --input-bg: #0f0f1a;
-    --accent-glow: rgba(0, 210, 255, 0.3);
+    --bg-dark: #0f0f1a;
+    --toolbar-bg: #1e1e2f;
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: radial-gradient(circle at center, #1a1a2e 0%, #05050a 100%);
+    font-family: 'Segoe UI', sans-serif;
+    background: #05050a;
     height: 100vh;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .browser-container {
-    width: 98%;
-    height: 96vh;
+    width: 98%; height: 96vh;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
 }
 
 .header-mac {
-    background: var(--mac-bg);
+    background: #2a2a40;
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
-.window-controls { display: flex; gap: 8px; margin-right: 25px; }
+.window-controls { display: flex; gap: 8px; margin-right: 20px; }
 .dot { width: 12px; height: 12px; border-radius: 50%; }
 .red { background: #ff5f57; } .yellow { background: #febc2e; } .green { background: #28c840; }
 
-.tab {
-    background: var(--toolbar-bg);
-    color: #eee;
-    padding: 8px 25px;
-    border-radius: 10px 10px 0 0;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-}
+.tab { color: #eee; font-size: 13px; cursor: pointer; }
 
 .toolbar {
     background: var(--toolbar-bg);
     padding: 10px 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .nav-buttons button {
-    background: transparent;
-    border: none;
-    color: #888;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 10px;
+    background: transparent; border: none; color: #888;
+    font-size: 18px; cursor: pointer; transition: 0.3s;
 }
-
 .nav-buttons button:hover { color: var(--primary-color); }
 
 .address-bar {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    background: var(--input-bg);
-    padding: 8px 18px;
-    border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #0f0f1a;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #333;
 }
+
+.s-icon { color: var(--primary-color); margin-right: 10px; }
 
 #url-input {
-    background: transparent;
-    border: none;
-    color: #fff;
-    width: 100%;
-    outline: none;
-    font-size: 14px;
+    background: transparent; border: none; color: #fff;
+    width: 100%; outline: none; font-size: 14px;
 }
 
-.s-icon { color: var(--primary-color); margin-right: 12px; }
-
 .go-btn {
-    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
-    border: none;
-    color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
+    background: var(--primary-color);
+    border: none; color: white;
+    padding: 8px 20px; border-radius: 20px;
+    font-weight: bold; cursor: pointer;
 }
 
 .loader-bar {
-    height: 3px;
-    width: 0%;
-    background: var(--primary-color);
-    box-shadow: 0 0 12px var(--primary-color);
-    z-index: 100;
-    transition: width 0.4s ease;
+    height: 3px; width: 0%; background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    transition: width 0.3s;
 }
 
-.content-area {
-    flex-grow: 1;
-    position: relative;
-    background: #0f0f1a;
-}
+.content-area { flex-grow: 1; position: relative; background: #0f0f1a; }
 
 #browser-viewport {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: white;
-    display: none; /* Boshida yashirin */
+    width: 100%; height: 100%; border: none;
+    display: none; background: white;
 }
 
 .welcome-screen {
-    position: absolute;
-    inset: 0;
-    background: #0f0f1a;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
-    color: white;
+    position: absolute; inset: 0; background: var(--bg-dark);
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center; color: white;
 }
 
 .logo-circle {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(135deg, #00d2ff, #005f73);
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
-    margin-bottom: 25px;
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    border-radius: 20px; display: flex;
+    justify-content: center; align-items: center;
+    font-size: 40px; margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
 }
 
-.quick-links { display: flex; gap: 20px; margin-top: 40px; }
+.quick-links { display: flex; gap: 15px; margin-top: 30px; }
 .link-item {
-    width: 60px;
-    height: 60px;
-    background: #1e1e2f;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 24px;
+    width: 50px; height: 50px; background: #2a2a40;
+    border-radius: 10px; display: flex;
+    justify-content: center; align-items: center;
+    cursor: pointer; transition: 0.3s; font-weight: bold;
 }
-
-.link-item:hover { background: var(--primary-color); color: #000; }
+.link-item:hover { background: var(--primary-color); transform: translateY(-3px); }
