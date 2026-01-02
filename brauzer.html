@@ -1,9 +1,9 @@
-;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FlashNet | Future Browser</title>
+    <title>FlashNet | Search</title>
     <link rel="stylesheet" href="brauzer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -19,27 +19,31 @@
         </div>
 
         <div class="toolbar">
-            <div class="address-bar">
-                <i class="fas fa-search s-icon"></i>
-                <input type="text" id="url-input" placeholder="Qidiruv so'zi yoki sayt manzili...">
+            <div class="nav-buttons">
+                <button onclick="goHome()"><i class="fas fa-home"></i></button>
+                <button onclick="location.reload()"><i class="fas fa-sync-alt"></i></button>
             </div>
-            <button onclick="loadPage()" class="go-btn">Go</button>
+            <div class="address-bar">
+                <i class="fab fa-google s-icon" style="color: #4285F4;"></i>
+                <input type="text" id="url-input" placeholder="FlashNet orqali qidirish...">
+            </div>
+            <button onclick="loadPage()" class="go-btn">Qidirish</button>
         </div>
 
         <div id="loader" class="loader-bar"></div>
 
         <div class="content-area">
             <div class="welcome-screen" id="welcome-msg">
-                <div class="logo-circle"><i class="fas fa-bolt"></i></div>
-                <h1>FlashNet</h1>
-                <p>Internetni shaxsiy uslubingizda kashf eting</p>
+                <div class="logo-circle"><i class="fab fa-google"></i></div>
+                <h1>FlashNet Search</h1>
+                <p>FlashNet orqali barcha natijalar bir joyda</p>
                 <div class="quick-links">
-                    <div class="link-item" onclick="quickLoad('google.com')">G</div>
+                    <div class="link-item" onclick="quickLoad('youtube.com')">Y</div>
                     <div class="link-item" onclick="quickLoad('wikipedia.org')">W</div>
-                    <div class="link-item" onclick="quickLoad('github.com')">Git</div>
+                    <div class="link-item" onclick="quickLoad('google.com')">G</div>
                 </div>
             </div>
-            <iframe id="browser-viewport" name="browser-viewport"></iframe>
+            <iframe id="browser-viewport" name="browser-viewport" src="about:blank"></iframe>
         </div>
     </div>
     <script src="brauzer.js"></script>
